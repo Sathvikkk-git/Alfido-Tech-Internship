@@ -1,0 +1,15 @@
+import random
+def guess_number():
+    num=int(input("enter a number:"))
+    n=random.randint(1, 100)
+    if num==n:
+        print("You guessed it right!")
+    else:
+        print("Sorry, the number was", n)
+    opt=input("Wanna take another guess? (yes/no): ").lower()
+    if opt=="yes":
+        guess_number()
+    else:
+        print("Thanks for playing!")   
+guess_number()
+
