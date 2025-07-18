@@ -1,0 +1,32 @@
+
+def operations(num1,num2,op):
+    if op=="+":
+        print("result:",num1+num2)
+    elif op=="-":
+        print("result:",num1-num2)
+    elif op=="*":
+        print("result",num1*num2)
+    elif op=="/":
+        if num2!=0:
+            print("Quotient:",num1/num2) 
+        else:
+            print("Undefined")
+    elif op=="%":
+        if num2!=0:
+            print("Remainder:",num1%num2)    
+        else:
+            print("Undefined")
+    else:
+        print("Invalid operator") 
+def main():
+    num1 = int(input("Enter first number: "))
+    op = input("Enter the operator (+, -, *, /, %): ")
+    num2 = int(input("Enter the second number: "))
+    operations(num1,num2,op)
+    option=input("Do you want to continue? (yes/no): ")
+    if option=="yes":
+        main()
+    else:
+        print("Exiting the program.")         
+main()               
+
