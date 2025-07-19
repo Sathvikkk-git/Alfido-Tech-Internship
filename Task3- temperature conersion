@@ -7,19 +7,19 @@ def convert():
     if temp[-1]=="c":
         temp=temp.replace("c","")
         tempk=float(temp)+273.15
-        tempf=(tempk-273.15)*9/5+32
+        tempf=(float(temp)*9/5)+32
         print("Temperature in Kelvin:",round(tempk,2))  
         print("Temperature in Fahrenheit:", round(tempf,2))
     elif temp[-1]=="f":
         temp=temp.replace("f","")
         tempk=(float(temp)-32)*5/9+273.15
-        tempc=tempk-273.15
+        tempc=(float(temp)-32)*5/9
         print("Temperature in Kelvin:", round(tempk,2))  
         print("Temperature in Celsius:", round(tempc,2))
     elif temp[-1]=="k":
         temp=temp.replace("k","")
         tempc=float(temp)-273.15
-        tempf=(tempc*9/5)+32
+        tempf=(float(temp)-273.15)*9/5+32
         print("Temperature in Celsius:", round(tempc,2))  
         print("Temperature in Fahrenheit:", round(tempf,2))
     else:
@@ -30,6 +30,10 @@ def convert():
     else:
         print("Exiting the program.")
 convert()                   
+
+
+
+
 
 
 
