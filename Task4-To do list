@@ -1,0 +1,54 @@
+def show_menu():
+    print("\nTodo List Menu:")
+    print("1. Add a task")
+    print("2. View all tasks")
+    print("3. Mark a task as done")
+    print("4. Delete a task")
+    print("5. Exit")
+
+def show_tasks(tasks):
+    if not tasks:
+        print("No tasks in your to-do list.")
+    else:
+        print("\nYour Tasks:")
+        for i, task in enumerate(tasks, 1):
+            status = "[Done]" if task['done'] else "[Not done]"
+            print(f"{i}. {task['task']} {status}")
+
+def main():
+    tasks = []
+    while True:
+        show_menu()
+        choice = input("Enter your choice (1-5): ").strip()
+        if choice == '1':
+            task_desc = input("Enter the task: ").strip()
+            tasks.append({'task': task_desc, 'done': False})
+            print("Task added.")
+        elif choice == '2':
+            show_tasks(tasks)
+        elif choice == '3':
+            show_tasks(tasks)
+            if tasks:
+                num = input("Enter task number to mark as done: ").strip()
+                if num.isdigit() and 1 <= int(num) <= len(tasks):
+                    tasks[int(num)-1]['done'] = True
+                    print("Task marked as done.")
+                else:
+                    print("Invalid task number.")
+        elif choice == '4':
+            show_tasks(tasks)
+            if tasks:
+                num = input("Enter task number to delete: ").strip()
+                if num.isdigit() and 1 <= int(num) <= len(tasks):
+                    removed = tasks.pop(int(num)-1)
+                    print(f"Removed task: {removed['task']}")
+                else:
+                    print("Invalid task number.")
+        elif choice == '5':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Enter a number from 1 to 5.")
+
+if __name__ == "__main__":
+    main()
